@@ -3,7 +3,7 @@ public class BankAccountApp {
         Checking chkacc1 = new Checking("Tom Wilson", "123456789", 1500);
         Savings savacc1 = new Savings("Rich Lowe", "234567891", 2500);
 
-        savacc1.compound();
+        // savacc1.compound();
 
         savacc1.showInfo();
         System.out.println("***********************");
