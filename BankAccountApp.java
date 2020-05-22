@@ -21,11 +21,28 @@ public class BankAccountApp {
         List<String[]> newAccountHolders = utilities.CSV.read(file);
 
         for (String[] accountHolder : newAccountHolders) {
-            System.out.println("NEW ACCOUNT");
-            System.out.println(accountHolder[0]);
-            System.out.println(accountHolder[1]);
-            System.out.println(accountHolder[2]);
-            System.out.println(accountHolder[3]);
+
+            String name = accountHolder[0];
+            String sSN = accountHolder[1];
+            String accountType = accountHolder[2];
+            double initDeposit = Double.parseDouble(accountHolder[3]);
+
+            // System.out.println(name + " " + sSN + " " + accountType + " $" +
+            // initDeposit);
+            if (accountType.equals("Savings")) {
+                System.out.println("OPEN A SAVINGS ACCOUNT");
+            } else if (accountType.equals("Checking")) {
+                System.out.println("OPEN A CHECKING ACCOUNT");
+            } else {
+                System.out.println("ERROR READING ACCOUNT TYPE");
+            }
+
+            // to check if it would print all columns in the csv file
+            // System.out.println("NEW ACCOUNT");
+            // System.out.println(accountHolder[0]); //Name
+            // System.out.println(accountHolder[1]); //SSN
+            // System.out.println(accountHolder[2]); //Account Type
+            // System.out.println(accountHolder[3]); // Initial Deposit
         }
     }
 }
