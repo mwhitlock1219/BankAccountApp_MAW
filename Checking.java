@@ -1,6 +1,6 @@
 public class Checking extends Account {
     // List properties specific to a Checking account
-    int debitCard;
+    int debitCardNumber;
     int debitCardPIN;
 
     // Constructor to initialize checking account properies
@@ -12,11 +12,24 @@ public class Checking extends Account {
         // System.out.println("ACCOUNT NUMBER : " + this.accountNumber);
         // System.out.println("NEW CHECKING ACCOUNT");
 
+        setDebitCard();
+
+    }
+
+    private void setDebitCard() {
+        debitCardNumber = (int) (Math.random() * Math.pow(10, 12));
+        // Check if it works
+        // System.out.println(debitCard);
+        debitCardPIN = (int) (Math.random() * Math.pow(10, 4));
     }
 
     // List any methods specific to checking account
     public void showInfo() {
+        // used to identify account in beginning
+        // System.out.println("ACCOUNT TYPE: Checking Account");
         super.showInfo();
-        System.out.println("ACCOUNT TYPE: Checking Account");
+        System.out.println("Your Checking Account Features" + "\n Debit Card Number: " + debitCardNumber
+                + "\n Debit Card PIN: " + debitCardPIN);
+
     }
 }
