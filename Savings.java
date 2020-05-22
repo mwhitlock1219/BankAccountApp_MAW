@@ -16,6 +16,14 @@ public class Savings extends Account {
 
     }
 
+    @Override
+    public void setRate() {
+        rate = getBaseRate() - .25;
+        // System.out.println("Implement rate for Savings");
+    }
+
+    // List any methods specific to savings account
+
     private void setSafetyDespositBox() {
         safetyDepositBoxID = (int) (Math.random() * Math.pow(10, 3));
         // Check if it works
@@ -23,7 +31,6 @@ public class Savings extends Account {
         safetyDepositBoxKey = (int) (Math.random() * Math.pow(10, 4));
     }
 
-    // List any methods specific to savings account
     public void showInfo() {
         // used to identify account in beginning
         // System.out.println("ACCOUNT TYPE: Savings Account");

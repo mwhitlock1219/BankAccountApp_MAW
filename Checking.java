@@ -16,6 +16,13 @@ public class Checking extends Account {
 
     }
 
+    @Override
+    public void setRate() {
+        rate = getBaseRate() * .15;
+        // System.out.println("Implement rate for Checking");
+    }
+
+    // List any methods specific to checking account
     private void setDebitCard() {
         debitCardNumber = (int) (Math.random() * Math.pow(10, 12));
         // Check if it works
@@ -23,7 +30,6 @@ public class Checking extends Account {
         debitCardPIN = (int) (Math.random() * Math.pow(10, 4));
     }
 
-    // List any methods specific to checking account
     public void showInfo() {
         // used to identify account in beginning
         // System.out.println("ACCOUNT TYPE: Checking Account");
