@@ -1,8 +1,9 @@
+import java.util.LinkedList;
 import java.util.List;
 
 public class BankAccountApp {
     public static void main(String[] args) {
-        String file = "C:\\Users\\malej\\WIN2020\\Week 11\\Day5-UdemyOOP\\BankAccountApp\\original.csv";
+        List<Account> accounts = new LinkedList<Account>();
 
         // Checking chkacc1 = new Checking("Tom Wilson", "123456789", 1500);
         // Savings savacc1 = new Savings("Rich Lowe", "234567891", 2500);
@@ -18,6 +19,7 @@ public class BankAccountApp {
         // // savacc1.transfer("Brokerage", 3000);
 
         // Read a CSV file , then create new accounts based n that data
+        String file = "C:\\Users\\malej\\WIN2020\\Week 11\\Day5-UdemyOOP\\BankAccountApp\\original.csv";
         List<String[]> newAccountHolders = utilities.CSV.read(file);
 
         for (String[] accountHolder : newAccountHolders) {
@@ -30,9 +32,13 @@ public class BankAccountApp {
             // System.out.println(name + " " + sSN + " " + accountType + " $" +
             // initDeposit);
             if (accountType.equals("Savings")) {
-                System.out.println("OPEN A SAVINGS ACCOUNT");
+                // System.out.println("OPEN A SAVINGS ACCOUNT");
+                accounts.add(new Savings(name, sSN, initDeposit));
+
             } else if (accountType.equals("Checking")) {
-                System.out.println("OPEN A CHECKING ACCOUNT");
+                // System.out.println("OPEN A CHECKING ACCOUNT");
+                accounts.add(new Checking(name, sSN, initDeposit));
+
             } else {
                 System.out.println("ERROR READING ACCOUNT TYPE");
             }
@@ -44,5 +50,12 @@ public class BankAccountApp {
             // System.out.println(accountHolder[2]); //Account Type
             // System.out.println(accountHolder[3]); // Initial Deposit
         }
+        // accounts.get(5).showInfo();
+        for (Account acc : accounts) {
+            System.out.println("\n******************");
+            acc.showInfo();
+        }
+        accounts.get((int) Math.random() * accounts.size()).deposit(10000);
+        accounts.get((int) Math.random() * accounts.size()).deposit(1500);
     }
 }
